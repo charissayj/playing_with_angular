@@ -1,20 +1,60 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div>
+  <!-- Interpolation and data binding -->
   <h1>
-    Welcome to {{title}}!
+    {{title}}
   </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <p>{{user.firstName}}</p>
+  <p>{{user.lastName}}</p>
+  <p>{{name}}</p>
+  <p>{{ 5 > 6 }}</p>
+  <p>{{ number }}</p>
+  <input [value]= 'number'/>
+  <input value= 'number'/>
+
+  <!-- Pipes -->
+  <p>{{ user.firstName | uppercase }}</p>
+  <p>{{ user.lastName | lowercase }}</p>
+  <p>{{ user | json }}</p>
+  <p>{{ name | json }}</p>
+  <p>{{ number | json }}</p>
+
+  <p>{{ amount | currency }}</p>
+  <p>{{ amount | currency:'AUS' }}</p>
+  <p>{{ amount | currency:'USD':true }}</p>
+
+  <p>{{ today | date:'fullDate' }}</p>
+  <p>{{ today | date:'longDate' }}</p>
+  <p>{{ today | date:'shortDate' }}</p>
+
+  <p>{{ today | date:'mediumTime' }}</p>
+  <p>{{ today | date:'shortTime' }}</p>
+
+  <p>{{ today | date:'medium' }}</p>
+  <p>{{ today | date:'short' }}</p>
+  
+  <!-- Structual directives -->
+  <!-- *ngIf -->
+  <h5 *ngIf='loggedIn'>You're logged in</h5>
+  <h5 *ngIf='!loggedIn'>Please log in.</h5>
+
+  <!-- *ngFor -->
+  <h5 *ngFor="let number of numbers">{{ number }}</h5>
+
+  <!-- Attribute directives -->
+  <span [ngStyle]="{
+  'background-color': 'green',
+  'font-weight': 'bold'
+  }" >ngStyle</span>
+  
+  <span [ngStyle]="{
+  'background-color': color,
+  'font-weight': 'bold'
+  }" >ngStyle w/Variable</span>
+
+  <span class='red'>Styling</span>
+  <span [ngClass]="{ 'on': switch }">I should be yellow.</span>
+  <span [ngClass]="{ 'on': 1===1 }">I should be yellow.</span>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 
